@@ -1,0 +1,1309 @@
+Namespace(dataset='CUB200', first_split_size=20, other_split_size=20, schedule=25, schedule_type='cosine', batch_size=64, optimizer='Adam', momentum=0.9, weight_decay=0, model_type='zoo', model_name='vit_pt_imnet', max_task=-1, dataroot='data', workers=4, validation=False, train_aug=True, rand_split=True, gpuid=[0], log_dir='./checkpoints/CUB200-pa-apt/seed2', learner_type='pa_apt', learner_name='PA_APT_Learner', debug_mode=0, repeat=1, overwrite=0, oracle_flag=False, upper_bound_flag=False, memory=0, temp=2.0, DW=False, prompt_param=['0.01'], seed=2, lr=0.02, ema_coeff=0.7, config='configs/cub200_pa_apt.yaml')
+************************************
+* STARTING TRIAL 1
+************************************
+=============================================
+Shuffling....seed is 2
+pre-shuffle:[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183, 184, 185, 186, 187, 188, 189, 190, 191, 192, 193, 194, 195, 196, 197, 198, 199]
+post-shuffle:[51, 94, 55, 35, 170, 177, 20, 85, 50, 36, 30, 76, 5, 136, 182, 82, 25, 169, 166, 178, 74, 53, 32, 184, 160, 179, 138, 140, 27, 12, 48, 57, 145, 28, 19, 162, 175, 121, 18, 72, 101, 69, 49, 115, 181, 15, 193, 37, 111, 0, 158, 33, 11, 47, 80, 126, 183, 16, 198, 91, 58, 70, 2, 67, 8, 199, 10, 3, 77, 22, 168, 96, 86, 4, 189, 88, 99, 31, 84, 17, 107, 123, 29, 103, 117, 161, 105, 73, 173, 13, 24, 1, 195, 185, 79, 87, 151, 65, 62, 26, 147, 144, 52, 75, 186, 159, 109, 66, 137, 191, 122, 133, 142, 38, 39, 61, 98, 157, 192, 129, 112, 197, 149, 194, 104, 152, 120, 56, 124, 132, 89, 141, 116, 146, 153, 176, 127, 71, 125, 63, 135, 118, 102, 41, 150, 154, 90, 172, 167, 106, 114, 46, 165, 131, 196, 156, 180, 34, 44, 83, 164, 6, 59, 60, 45, 143, 42, 134, 108, 97, 81, 119, 93, 7, 187, 68, 128, 113, 139, 95, 130, 100, 163, 110, 40, 174, 148, 9, 190, 54, 155, 64, 78, 171, 188, 43, 92, 21, 23, 14]
+=============================================
+*****************************************
+====================== 1 =======================
+Incremental class: Old valid output dimension: 0
+Incremental class: New Valid output dimension: 20
+/root/miniconda3/envs/apt/lib/python3.10/site-packages/torch/utils/data/dataloader.py:557: UserWarning: This DataLoader will create 4 worker processes in total. Our suggested max number of worker in current system is 3, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  warnings.warn(_create_warning_msg(
+Overwriting ...
+/root/dl_project/Additive-Prompt-Tuning/learners/default.py:239: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  model_dict = torch.load(filename + 'class.pth')
+Optimizer is reset!
+*****************************************
+LR: 0.02
+Epoch:1/25
+ * Loss 1.272 | Train Acc 67.383
+LR: 0.02
+Epoch:2/25
+ * Loss 0.339 | Train Acc 88.281
+LR: 0.01995803031515996
+Epoch:3/25
+ * Loss 0.196 | Train Acc 92.188
+LR: 0.019832297406084384
+Epoch:4/25
+ * Loss 0.192 | Train Acc 94.336
+LR: 0.01962332896983008
+Epoch:5/25
+ * Loss 0.213 | Train Acc 94.141
+LR: 0.019332002040338147
+Epoch:6/25
+ * Loss 0.170 | Train Acc 94.336
+LR: 0.01895953930755021
+Epoch:7/25
+ * Loss 0.176 | Train Acc 94.141
+LR: 0.018507503985817242
+Epoch:8/25
+ * Loss 0.222 | Train Acc 93.164
+LR: 0.017977793253138218
+Epoch:9/25
+ * Loss 0.176 | Train Acc 94.336
+LR: 0.017372630288763825
+Epoch:10/25
+ * Loss 0.174 | Train Acc 94.336
+LR: 0.016694554942583234
+Epoch:11/25
+ * Loss 0.177 | Train Acc 94.531
+LR: 0.015946413075454142
+Epoch:12/25
+ * Loss 0.122 | Train Acc 96.484
+LR: 0.015131344615214457
+Epoch:13/25
+ * Loss 0.186 | Train Acc 94.922
+LR: 0.014252770378504108
+Epoch:14/25
+ * Loss 0.143 | Train Acc 96.289
+LR: 0.013314377713705425
+Epoch:15/25
+ * Loss 0.143 | Train Acc 95.508
+LR: 0.012320105025258196
+Epoch:16/25
+ * Loss 0.165 | Train Acc 94.141
+LR: 0.011274125244300335
+Epoch:17/25
+ * Loss 0.117 | Train Acc 96.875
+LR: 0.010180828315007424
+Epoch:18/25
+ * Loss 0.118 | Train Acc 96.680
+LR: 0.009044802770135373
+Epoch:19/25
+ * Loss 0.082 | Train Acc 97.461
+LR: 0.007870816473093028
+Epoch:20/25
+ * Loss 0.101 | Train Acc 97.852
+LR: 0.00666379660736973
+Epoch:21/25
+ * Loss 0.105 | Train Acc 96.094
+LR: 0.005428808997301486
+Epoch:22/25
+ * Loss 0.135 | Train Acc 96.484
+LR: 0.004171036846965889
+Epoch:23/25
+ * Loss 0.129 | Train Acc 95.898
+LR: 0.0028957589864379565
+Epoch:24/25
+ * Loss 0.128 | Train Acc 97.070
+LR: 0.0016083277167066668
+Epoch:25/25
+ * Loss 0.111 | Train Acc 97.070
+=> Saving class model to: ./checkpoints/CUB200-pa-apt/seed2/models/repeat-1/task-1/
+=> Save Done
+validation split name: 1 local = False
+ * Val Acc 98.611, Total time 2.34
+====================== 2 =======================
+Incremental class: Old valid output dimension: 20
+Incremental class: New Valid output dimension: 40
+Overwriting ...
+Optimizer is reset!
+*****************************************
+LR: 0.02
+Epoch:1/25
+ * Loss 1.058 | Train Acc 73.438
+LR: 0.02
+Epoch:2/25
+ * Loss 0.249 | Train Acc 93.164
+LR: 0.01995803031515996
+Epoch:3/25
+ * Loss 0.222 | Train Acc 93.750
+LR: 0.019832297406084384
+Epoch:4/25
+ * Loss 0.152 | Train Acc 95.312
+LR: 0.01962332896983008
+Epoch:5/25
+ * Loss 0.165 | Train Acc 95.508
+LR: 0.019332002040338147
+Epoch:6/25
+ * Loss 0.142 | Train Acc 95.312
+LR: 0.01895953930755021
+Epoch:7/25
+ * Loss 0.195 | Train Acc 94.141
+LR: 0.018507503985817242
+Epoch:8/25
+ * Loss 0.174 | Train Acc 95.117
+LR: 0.017977793253138218
+Epoch:9/25
+ * Loss 0.110 | Train Acc 96.680
+LR: 0.017372630288763825
+Epoch:10/25
+ * Loss 0.113 | Train Acc 95.898
+LR: 0.016694554942583234
+Epoch:11/25
+ * Loss 0.155 | Train Acc 95.117
+LR: 0.015946413075454142
+Epoch:12/25
+ * Loss 0.141 | Train Acc 96.289
+LR: 0.015131344615214457
+Epoch:13/25
+ * Loss 0.091 | Train Acc 97.461
+LR: 0.014252770378504108
+Epoch:14/25
+ * Loss 0.098 | Train Acc 96.875
+LR: 0.013314377713705425
+Epoch:15/25
+ * Loss 0.107 | Train Acc 97.266
+LR: 0.012320105025258196
+Epoch:16/25
+ * Loss 0.094 | Train Acc 97.070
+LR: 0.011274125244300335
+Epoch:17/25
+ * Loss 0.095 | Train Acc 97.070
+LR: 0.010180828315007424
+Epoch:18/25
+ * Loss 0.070 | Train Acc 97.852
+LR: 0.009044802770135373
+Epoch:19/25
+ * Loss 0.123 | Train Acc 96.289
+LR: 0.007870816473093028
+Epoch:20/25
+ * Loss 0.098 | Train Acc 96.289
+LR: 0.00666379660736973
+Epoch:21/25
+ * Loss 0.091 | Train Acc 97.852
+LR: 0.005428808997301486
+Epoch:22/25
+ * Loss 0.092 | Train Acc 98.047
+LR: 0.004171036846965889
+Epoch:23/25
+ * Loss 0.116 | Train Acc 97.070
+LR: 0.0028957589864379565
+Epoch:24/25
+ * Loss 0.087 | Train Acc 97.266
+LR: 0.0016083277167066668
+Epoch:25/25
+ * Loss 0.100 | Train Acc 97.461
+Merging prompt ... 
+=> Saving class model to: ./checkpoints/CUB200-pa-apt/seed2/models/repeat-1/task-2/
+=> Save Done
+validation split name: 1 local = False
+ * Val Acc 91.667, Total time 2.31
+validation split name: 2 local = False
+ * Val Acc 97.656, Total time 2.14
+====================== 3 =======================
+Incremental class: Old valid output dimension: 40
+Incremental class: New Valid output dimension: 60
+Overwriting ...
+Optimizer is reset!
+*****************************************
+LR: 0.02
+Epoch:1/25
+ * Loss 1.002 | Train Acc 74.805
+LR: 0.02
+Epoch:2/25
+ * Loss 0.281 | Train Acc 91.797
+LR: 0.01995803031515996
+Epoch:3/25
+ * Loss 0.195 | Train Acc 93.945
+LR: 0.019832297406084384
+Epoch:4/25
+ * Loss 0.213 | Train Acc 93.945
+LR: 0.01962332896983008
+Epoch:5/25
+ * Loss 0.155 | Train Acc 95.508
+LR: 0.019332002040338147
+Epoch:6/25
+ * Loss 0.169 | Train Acc 95.508
+LR: 0.01895953930755021
+Epoch:7/25
+ * Loss 0.142 | Train Acc 94.922
+LR: 0.018507503985817242
+Epoch:8/25
+ * Loss 0.119 | Train Acc 96.289
+LR: 0.017977793253138218
+Epoch:9/25
+ * Loss 0.134 | Train Acc 96.484
+LR: 0.017372630288763825
+Epoch:10/25
+ * Loss 0.094 | Train Acc 97.461
+LR: 0.016694554942583234
+Epoch:11/25
+ * Loss 0.155 | Train Acc 95.508
+LR: 0.015946413075454142
+Epoch:12/25
+ * Loss 0.175 | Train Acc 94.531
+LR: 0.015131344615214457
+Epoch:13/25
+ * Loss 0.147 | Train Acc 95.312
+LR: 0.014252770378504108
+Epoch:14/25
+ * Loss 0.103 | Train Acc 97.266
+LR: 0.013314377713705425
+Epoch:15/25
+ * Loss 0.079 | Train Acc 97.656
+LR: 0.012320105025258196
+Epoch:16/25
+ * Loss 0.097 | Train Acc 97.266
+LR: 0.011274125244300335
+Epoch:17/25
+ * Loss 0.100 | Train Acc 96.289
+LR: 0.010180828315007424
+Epoch:18/25
+ * Loss 0.096 | Train Acc 97.461
+LR: 0.009044802770135373
+Epoch:19/25
+ * Loss 0.118 | Train Acc 97.070
+LR: 0.007870816473093028
+Epoch:20/25
+ * Loss 0.099 | Train Acc 97.266
+LR: 0.00666379660736973
+Epoch:21/25
+ * Loss 0.078 | Train Acc 98.242
+LR: 0.005428808997301486
+Epoch:22/25
+ * Loss 0.135 | Train Acc 96.680
+LR: 0.004171036846965889
+Epoch:23/25
+ * Loss 0.116 | Train Acc 97.070
+LR: 0.0028957589864379565
+Epoch:24/25
+ * Loss 0.113 | Train Acc 96.680
+LR: 0.0016083277167066668
+Epoch:25/25
+ * Loss 0.129 | Train Acc 96.094
+Merging prompt ... 
+=> Saving class model to: ./checkpoints/CUB200-pa-apt/seed2/models/repeat-1/task-3/
+=> Save Done
+validation split name: 1 local = False
+ * Val Acc 90.278, Total time 2.30
+validation split name: 2 local = False
+ * Val Acc 94.336, Total time 2.07
+validation split name: 3 local = False
+ * Val Acc 89.258, Total time 2.13
+====================== 4 =======================
+Incremental class: Old valid output dimension: 60
+Incremental class: New Valid output dimension: 80
+Overwriting ...
+Optimizer is reset!
+*****************************************
+LR: 0.02
+Epoch:1/25
+ * Loss 0.889 | Train Acc 76.367
+LR: 0.02
+Epoch:2/25
+ * Loss 0.220 | Train Acc 93.555
+LR: 0.01995803031515996
+Epoch:3/25
+ * Loss 0.169 | Train Acc 94.922
+LR: 0.019832297406084384
+Epoch:4/25
+ * Loss 0.186 | Train Acc 93.945
+LR: 0.01962332896983008
+Epoch:5/25
+ * Loss 0.152 | Train Acc 95.312
+LR: 0.019332002040338147
+Epoch:6/25
+ * Loss 0.179 | Train Acc 95.312
+LR: 0.01895953930755021
+Epoch:7/25
+ * Loss 0.151 | Train Acc 95.508
+LR: 0.018507503985817242
+Epoch:8/25
+ * Loss 0.133 | Train Acc 95.703
+LR: 0.017977793253138218
+Epoch:9/25
+ * Loss 0.089 | Train Acc 97.852
+LR: 0.017372630288763825
+Epoch:10/25
+ * Loss 0.134 | Train Acc 96.094
+LR: 0.016694554942583234
+Epoch:11/25
+ * Loss 0.112 | Train Acc 96.484
+LR: 0.015946413075454142
+Epoch:12/25
+ * Loss 0.108 | Train Acc 96.680
+LR: 0.015131344615214457
+Epoch:13/25
+ * Loss 0.094 | Train Acc 97.070
+LR: 0.014252770378504108
+Epoch:14/25
+ * Loss 0.115 | Train Acc 96.680
+LR: 0.013314377713705425
+Epoch:15/25
+ * Loss 0.141 | Train Acc 95.898
+LR: 0.012320105025258196
+Epoch:16/25
+ * Loss 0.116 | Train Acc 96.875
+LR: 0.011274125244300335
+Epoch:17/25
+ * Loss 0.086 | Train Acc 97.656
+LR: 0.010180828315007424
+Epoch:18/25
+ * Loss 0.094 | Train Acc 97.070
+LR: 0.009044802770135373
+Epoch:19/25
+ * Loss 0.078 | Train Acc 98.047
+LR: 0.007870816473093028
+Epoch:20/25
+ * Loss 0.066 | Train Acc 98.438
+LR: 0.00666379660736973
+Epoch:21/25
+ * Loss 0.102 | Train Acc 96.680
+LR: 0.005428808997301486
+Epoch:22/25
+ * Loss 0.100 | Train Acc 97.070
+LR: 0.004171036846965889
+Epoch:23/25
+ * Loss 0.067 | Train Acc 98.242
+LR: 0.0028957589864379565
+Epoch:24/25
+ * Loss 0.070 | Train Acc 97.852
+LR: 0.0016083277167066668
+Epoch:25/25
+ * Loss 0.073 | Train Acc 97.656
+Merging prompt ... 
+=> Saving class model to: ./checkpoints/CUB200-pa-apt/seed2/models/repeat-1/task-4/
+=> Save Done
+validation split name: 1 local = False
+ * Val Acc 89.931, Total time 2.28
+validation split name: 2 local = False
+ * Val Acc 92.969, Total time 2.06
+validation split name: 3 local = False
+ * Val Acc 88.477, Total time 2.16
+validation split name: 4 local = False
+ * Val Acc 90.039, Total time 2.06
+====================== 5 =======================
+Incremental class: Old valid output dimension: 80
+Incremental class: New Valid output dimension: 100
+Overwriting ...
+Optimizer is reset!
+*****************************************
+LR: 0.02
+Epoch:1/25
+ * Loss 0.911 | Train Acc 73.438
+LR: 0.02
+Epoch:2/25
+ * Loss 0.257 | Train Acc 91.211
+LR: 0.01995803031515996
+Epoch:3/25
+ * Loss 0.221 | Train Acc 93.359
+LR: 0.019832297406084384
+Epoch:4/25
+ * Loss 0.162 | Train Acc 94.336
+LR: 0.01962332896983008
+Epoch:5/25
+ * Loss 0.172 | Train Acc 94.922
+LR: 0.019332002040338147
+Epoch:6/25
+ * Loss 0.143 | Train Acc 95.898
+LR: 0.01895953930755021
+Epoch:7/25
+ * Loss 0.145 | Train Acc 95.312
+LR: 0.018507503985817242
+Epoch:8/25
+ * Loss 0.148 | Train Acc 95.703
+LR: 0.017977793253138218
+Epoch:9/25
+ * Loss 0.121 | Train Acc 95.898
+LR: 0.017372630288763825
+Epoch:10/25
+ * Loss 0.157 | Train Acc 94.922
+LR: 0.016694554942583234
+Epoch:11/25
+ * Loss 0.127 | Train Acc 96.484
+LR: 0.015946413075454142
+Epoch:12/25
+ * Loss 0.104 | Train Acc 97.461
+LR: 0.015131344615214457
+Epoch:13/25
+ * Loss 0.167 | Train Acc 94.727
+LR: 0.014252770378504108
+Epoch:14/25
+ * Loss 0.128 | Train Acc 96.094
+LR: 0.013314377713705425
+Epoch:15/25
+ * Loss 0.104 | Train Acc 97.852
+LR: 0.012320105025258196
+Epoch:16/25
+ * Loss 0.066 | Train Acc 98.438
+LR: 0.011274125244300335
+Epoch:17/25
+ * Loss 0.132 | Train Acc 96.094
+LR: 0.010180828315007424
+Epoch:18/25
+ * Loss 0.098 | Train Acc 97.852
+LR: 0.009044802770135373
+Epoch:19/25
+ * Loss 0.048 | Train Acc 98.438
+LR: 0.007870816473093028
+Epoch:20/25
+ * Loss 0.082 | Train Acc 97.852
+LR: 0.00666379660736973
+Epoch:21/25
+ * Loss 0.102 | Train Acc 97.656
+LR: 0.005428808997301486
+Epoch:22/25
+ * Loss 0.105 | Train Acc 97.266
+LR: 0.004171036846965889
+Epoch:23/25
+ * Loss 0.118 | Train Acc 97.070
+LR: 0.0028957589864379565
+Epoch:24/25
+ * Loss 0.069 | Train Acc 98.242
+LR: 0.0016083277167066668
+Epoch:25/25
+ * Loss 0.082 | Train Acc 97.656
+Merging prompt ... 
+=> Saving class model to: ./checkpoints/CUB200-pa-apt/seed2/models/repeat-1/task-5/
+=> Save Done
+validation split name: 1 local = False
+ * Val Acc 85.590, Total time 2.39
+validation split name: 2 local = False
+ * Val Acc 91.602, Total time 2.10
+validation split name: 3 local = False
+ * Val Acc 86.328, Total time 2.18
+validation split name: 4 local = False
+ * Val Acc 87.305, Total time 2.19
+validation split name: 5 local = False
+ * Val Acc 80.078, Total time 2.13
+====================== 6 =======================
+Incremental class: Old valid output dimension: 100
+Incremental class: New Valid output dimension: 120
+Overwriting ...
+Optimizer is reset!
+*****************************************
+LR: 0.02
+Epoch:1/25
+ * Loss 0.850 | Train Acc 74.609
+LR: 0.02
+Epoch:2/25
+ * Loss 0.316 | Train Acc 89.453
+LR: 0.01995803031515996
+Epoch:3/25
+ * Loss 0.332 | Train Acc 89.648
+LR: 0.019832297406084384
+Epoch:4/25
+ * Loss 0.235 | Train Acc 91.016
+LR: 0.01962332896983008
+Epoch:5/25
+ * Loss 0.229 | Train Acc 92.969
+LR: 0.019332002040338147
+Epoch:6/25
+ * Loss 0.244 | Train Acc 92.383
+LR: 0.01895953930755021
+Epoch:7/25
+ * Loss 0.166 | Train Acc 94.531
+LR: 0.018507503985817242
+Epoch:8/25
+ * Loss 0.203 | Train Acc 93.359
+LR: 0.017977793253138218
+Epoch:9/25
+ * Loss 0.191 | Train Acc 94.336
+LR: 0.017372630288763825
+Epoch:10/25
+ * Loss 0.181 | Train Acc 94.922
+LR: 0.016694554942583234
+Epoch:11/25
+ * Loss 0.157 | Train Acc 94.922
+LR: 0.015946413075454142
+Epoch:12/25
+ * Loss 0.168 | Train Acc 94.727
+LR: 0.015131344615214457
+Epoch:13/25
+ * Loss 0.121 | Train Acc 96.875
+LR: 0.014252770378504108
+Epoch:14/25
+ * Loss 0.181 | Train Acc 94.531
+LR: 0.013314377713705425
+Epoch:15/25
+ * Loss 0.166 | Train Acc 95.508
+LR: 0.012320105025258196
+Epoch:16/25
+ * Loss 0.107 | Train Acc 97.266
+LR: 0.011274125244300335
+Epoch:17/25
+ * Loss 0.126 | Train Acc 96.875
+LR: 0.010180828315007424
+Epoch:18/25
+ * Loss 0.120 | Train Acc 97.266
+LR: 0.009044802770135373
+Epoch:19/25
+ * Loss 0.137 | Train Acc 95.898
+LR: 0.007870816473093028
+Epoch:20/25
+ * Loss 0.095 | Train Acc 97.461
+LR: 0.00666379660736973
+Epoch:21/25
+ * Loss 0.156 | Train Acc 95.703
+LR: 0.005428808997301486
+Epoch:22/25
+ * Loss 0.126 | Train Acc 95.703
+LR: 0.004171036846965889
+Epoch:23/25
+ * Loss 0.146 | Train Acc 95.898
+LR: 0.0028957589864379565
+Epoch:24/25
+ * Loss 0.135 | Train Acc 95.703
+LR: 0.0016083277167066668
+Epoch:25/25
+ * Loss 0.168 | Train Acc 94.922
+Merging prompt ... 
+=> Saving class model to: ./checkpoints/CUB200-pa-apt/seed2/models/repeat-1/task-6/
+=> Save Done
+validation split name: 1 local = False
+ * Val Acc 85.243, Total time 2.32
+validation split name: 2 local = False
+ * Val Acc 90.234, Total time 2.16
+validation split name: 3 local = False
+ * Val Acc 86.133, Total time 2.10
+validation split name: 4 local = False
+ * Val Acc 86.133, Total time 2.12
+validation split name: 5 local = False
+ * Val Acc 75.391, Total time 2.10
+validation split name: 6 local = False
+ * Val Acc 78.472, Total time 2.29
+====================== 7 =======================
+Incremental class: Old valid output dimension: 120
+Incremental class: New Valid output dimension: 140
+Overwriting ...
+Optimizer is reset!
+*****************************************
+LR: 0.02
+Epoch:1/25
+ * Loss 1.120 | Train Acc 68.164
+LR: 0.02
+Epoch:2/25
+ * Loss 0.315 | Train Acc 90.039
+LR: 0.01995803031515996
+Epoch:3/25
+ * Loss 0.234 | Train Acc 93.164
+LR: 0.019832297406084384
+Epoch:4/25
+ * Loss 0.207 | Train Acc 93.359
+LR: 0.01962332896983008
+Epoch:5/25
+ * Loss 0.197 | Train Acc 94.531
+LR: 0.019332002040338147
+Epoch:6/25
+ * Loss 0.177 | Train Acc 94.727
+LR: 0.01895953930755021
+Epoch:7/25
+ * Loss 0.174 | Train Acc 94.922
+LR: 0.018507503985817242
+Epoch:8/25
+ * Loss 0.164 | Train Acc 94.336
+LR: 0.017977793253138218
+Epoch:9/25
+ * Loss 0.187 | Train Acc 94.922
+LR: 0.017372630288763825
+Epoch:10/25
+ * Loss 0.139 | Train Acc 96.094
+LR: 0.016694554942583234
+Epoch:11/25
+ * Loss 0.145 | Train Acc 95.508
+LR: 0.015946413075454142
+Epoch:12/25
+ * Loss 0.139 | Train Acc 95.898
+LR: 0.015131344615214457
+Epoch:13/25
+ * Loss 0.148 | Train Acc 95.508
+LR: 0.014252770378504108
+Epoch:14/25
+ * Loss 0.116 | Train Acc 96.875
+LR: 0.013314377713705425
+Epoch:15/25
+ * Loss 0.149 | Train Acc 95.508
+LR: 0.012320105025258196
+Epoch:16/25
+ * Loss 0.147 | Train Acc 96.094
+LR: 0.011274125244300335
+Epoch:17/25
+ * Loss 0.145 | Train Acc 95.508
+LR: 0.010180828315007424
+Epoch:18/25
+ * Loss 0.110 | Train Acc 97.266
+LR: 0.009044802770135373
+Epoch:19/25
+ * Loss 0.121 | Train Acc 96.680
+LR: 0.007870816473093028
+Epoch:20/25
+ * Loss 0.080 | Train Acc 97.852
+LR: 0.00666379660736973
+Epoch:21/25
+ * Loss 0.105 | Train Acc 96.875
+LR: 0.005428808997301486
+Epoch:22/25
+ * Loss 0.123 | Train Acc 97.266
+LR: 0.004171036846965889
+Epoch:23/25
+ * Loss 0.102 | Train Acc 97.266
+LR: 0.0028957589864379565
+Epoch:24/25
+ * Loss 0.105 | Train Acc 97.070
+LR: 0.0016083277167066668
+Epoch:25/25
+ * Loss 0.135 | Train Acc 96.289
+Merging prompt ... 
+=> Saving class model to: ./checkpoints/CUB200-pa-apt/seed2/models/repeat-1/task-7/
+=> Save Done
+validation split name: 1 local = False
+ * Val Acc 83.681, Total time 2.44
+validation split name: 2 local = False
+ * Val Acc 88.281, Total time 2.09
+validation split name: 3 local = False
+ * Val Acc 84.570, Total time 2.15
+validation split name: 4 local = False
+ * Val Acc 85.742, Total time 2.18
+validation split name: 5 local = False
+ * Val Acc 75.977, Total time 1.99
+validation split name: 6 local = False
+ * Val Acc 77.604, Total time 2.30
+validation split name: 7 local = False
+ * Val Acc 75.868, Total time 2.42
+====================== 8 =======================
+Incremental class: Old valid output dimension: 140
+Incremental class: New Valid output dimension: 160
+Overwriting ...
+Optimizer is reset!
+*****************************************
+LR: 0.02
+Epoch:1/25
+ * Loss 1.036 | Train Acc 73.242
+LR: 0.02
+Epoch:2/25
+ * Loss 0.340 | Train Acc 90.820
+LR: 0.01995803031515996
+Epoch:3/25
+ * Loss 0.276 | Train Acc 90.430
+LR: 0.019832297406084384
+Epoch:4/25
+ * Loss 0.213 | Train Acc 93.555
+LR: 0.01962332896983008
+Epoch:5/25
+ * Loss 0.194 | Train Acc 94.531
+LR: 0.019332002040338147
+Epoch:6/25
+ * Loss 0.193 | Train Acc 93.164
+LR: 0.01895953930755021
+Epoch:7/25
+ * Loss 0.161 | Train Acc 94.141
+LR: 0.018507503985817242
+Epoch:8/25
+ * Loss 0.162 | Train Acc 95.117
+LR: 0.017977793253138218
+Epoch:9/25
+ * Loss 0.167 | Train Acc 94.922
+LR: 0.017372630288763825
+Epoch:10/25
+ * Loss 0.154 | Train Acc 94.531
+LR: 0.016694554942583234
+Epoch:11/25
+ * Loss 0.229 | Train Acc 92.773
+LR: 0.015946413075454142
+Epoch:12/25
+ * Loss 0.140 | Train Acc 96.094
+LR: 0.015131344615214457
+Epoch:13/25
+ * Loss 0.164 | Train Acc 95.117
+LR: 0.014252770378504108
+Epoch:14/25
+ * Loss 0.180 | Train Acc 93.945
+LR: 0.013314377713705425
+Epoch:15/25
+ * Loss 0.119 | Train Acc 97.070
+LR: 0.012320105025258196
+Epoch:16/25
+ * Loss 0.106 | Train Acc 96.680
+LR: 0.011274125244300335
+Epoch:17/25
+ * Loss 0.133 | Train Acc 95.508
+LR: 0.010180828315007424
+Epoch:18/25
+ * Loss 0.176 | Train Acc 95.117
+LR: 0.009044802770135373
+Epoch:19/25
+ * Loss 0.147 | Train Acc 95.508
+LR: 0.007870816473093028
+Epoch:20/25
+ * Loss 0.137 | Train Acc 95.703
+LR: 0.00666379660736973
+Epoch:21/25
+ * Loss 0.112 | Train Acc 96.680
+LR: 0.005428808997301486
+Epoch:22/25
+ * Loss 0.154 | Train Acc 95.508
+LR: 0.004171036846965889
+Epoch:23/25
+ * Loss 0.122 | Train Acc 96.094
+LR: 0.0028957589864379565
+Epoch:24/25
+ * Loss 0.078 | Train Acc 98.047
+LR: 0.0016083277167066668
+Epoch:25/25
+ * Loss 0.132 | Train Acc 96.484
+Merging prompt ... 
+=> Saving class model to: ./checkpoints/CUB200-pa-apt/seed2/models/repeat-1/task-8/
+=> Save Done
+validation split name: 1 local = False
+ * Val Acc 83.160, Total time 2.39
+validation split name: 2 local = False
+ * Val Acc 87.891, Total time 2.17
+validation split name: 3 local = False
+ * Val Acc 84.180, Total time 2.17
+validation split name: 4 local = False
+ * Val Acc 85.547, Total time 2.12
+validation split name: 5 local = False
+ * Val Acc 75.977, Total time 2.12
+validation split name: 6 local = False
+ * Val Acc 77.778, Total time 2.32
+validation split name: 7 local = False
+ * Val Acc 76.215, Total time 2.45
+validation split name: 8 local = False
+ * Val Acc 81.771, Total time 2.31
+====================== 9 =======================
+Incremental class: Old valid output dimension: 160
+Incremental class: New Valid output dimension: 180
+Overwriting ...
+Optimizer is reset!
+*****************************************
+LR: 0.02
+Epoch:1/25
+ * Loss 0.989 | Train Acc 72.656
+LR: 0.02
+Epoch:2/25
+ * Loss 0.197 | Train Acc 93.555
+LR: 0.01995803031515996
+Epoch:3/25
+ * Loss 0.251 | Train Acc 92.188
+LR: 0.019832297406084384
+Epoch:4/25
+ * Loss 0.191 | Train Acc 94.141
+LR: 0.01962332896983008
+Epoch:5/25
+ * Loss 0.188 | Train Acc 93.555
+LR: 0.019332002040338147
+Epoch:6/25
+ * Loss 0.145 | Train Acc 94.727
+LR: 0.01895953930755021
+Epoch:7/25
+ * Loss 0.134 | Train Acc 95.508
+LR: 0.018507503985817242
+Epoch:8/25
+ * Loss 0.135 | Train Acc 95.703
+LR: 0.017977793253138218
+Epoch:9/25
+ * Loss 0.116 | Train Acc 96.680
+LR: 0.017372630288763825
+Epoch:10/25
+ * Loss 0.135 | Train Acc 96.484
+LR: 0.016694554942583234
+Epoch:11/25
+ * Loss 0.121 | Train Acc 97.070
+LR: 0.015946413075454142
+Epoch:12/25
+ * Loss 0.105 | Train Acc 97.070
+LR: 0.015131344615214457
+Epoch:13/25
+ * Loss 0.116 | Train Acc 96.289
+LR: 0.014252770378504108
+Epoch:14/25
+ * Loss 0.177 | Train Acc 95.898
+LR: 0.013314377713705425
+Epoch:15/25
+ * Loss 0.090 | Train Acc 97.656
+LR: 0.012320105025258196
+Epoch:16/25
+ * Loss 0.118 | Train Acc 96.680
+LR: 0.011274125244300335
+Epoch:17/25
+ * Loss 0.099 | Train Acc 96.484
+LR: 0.010180828315007424
+Epoch:18/25
+ * Loss 0.143 | Train Acc 95.898
+LR: 0.009044802770135373
+Epoch:19/25
+ * Loss 0.117 | Train Acc 97.461
+LR: 0.007870816473093028
+Epoch:20/25
+ * Loss 0.101 | Train Acc 96.875
+LR: 0.00666379660736973
+Epoch:21/25
+ * Loss 0.081 | Train Acc 97.656
+LR: 0.005428808997301486
+Epoch:22/25
+ * Loss 0.133 | Train Acc 95.508
+LR: 0.004171036846965889
+Epoch:23/25
+ * Loss 0.079 | Train Acc 98.047
+LR: 0.0028957589864379565
+Epoch:24/25
+ * Loss 0.080 | Train Acc 97.461
+LR: 0.0016083277167066668
+Epoch:25/25
+ * Loss 0.076 | Train Acc 97.852
+Merging prompt ... 
+=> Saving class model to: ./checkpoints/CUB200-pa-apt/seed2/models/repeat-1/task-9/
+=> Save Done
+validation split name: 1 local = False
+ * Val Acc 82.465, Total time 2.39
+validation split name: 2 local = False
+ * Val Acc 85.352, Total time 2.11
+validation split name: 3 local = False
+ * Val Acc 79.492, Total time 2.22
+validation split name: 4 local = False
+ * Val Acc 83.594, Total time 2.06
+validation split name: 5 local = False
+ * Val Acc 74.609, Total time 2.12
+validation split name: 6 local = False
+ * Val Acc 76.042, Total time 2.40
+validation split name: 7 local = False
+ * Val Acc 75.694, Total time 2.27
+validation split name: 8 local = False
+ * Val Acc 80.382, Total time 2.36
+validation split name: 9 local = False
+ * Val Acc 74.805, Total time 2.33
+====================== 10 =======================
+Incremental class: Old valid output dimension: 180
+Incremental class: New Valid output dimension: 200
+Overwriting ...
+Optimizer is reset!
+*****************************************
+LR: 0.02
+Epoch:1/25
+ * Loss 0.976 | Train Acc 74.023
+LR: 0.02
+Epoch:2/25
+ * Loss 0.304 | Train Acc 90.234
+LR: 0.01995803031515996
+Epoch:3/25
+ * Loss 0.222 | Train Acc 93.359
+LR: 0.019832297406084384
+Epoch:4/25
+ * Loss 0.248 | Train Acc 92.578
+LR: 0.01962332896983008
+Epoch:5/25
+ * Loss 0.164 | Train Acc 95.117
+LR: 0.019332002040338147
+Epoch:6/25
+ * Loss 0.185 | Train Acc 94.336
+LR: 0.01895953930755021
+Epoch:7/25
+ * Loss 0.160 | Train Acc 94.922
+LR: 0.018507503985817242
+Epoch:8/25
+ * Loss 0.178 | Train Acc 95.703
+LR: 0.017977793253138218
+Epoch:9/25
+ * Loss 0.144 | Train Acc 95.703
+LR: 0.017372630288763825
+Epoch:10/25
+ * Loss 0.133 | Train Acc 96.484
+LR: 0.016694554942583234
+Epoch:11/25
+ * Loss 0.151 | Train Acc 95.508
+LR: 0.015946413075454142
+Epoch:12/25
+ * Loss 0.130 | Train Acc 96.680
+LR: 0.015131344615214457
+Epoch:13/25
+ * Loss 0.081 | Train Acc 97.656
+LR: 0.014252770378504108
+Epoch:14/25
+ * Loss 0.134 | Train Acc 95.898
+LR: 0.013314377713705425
+Epoch:15/25
+ * Loss 0.160 | Train Acc 95.508
+LR: 0.012320105025258196
+Epoch:16/25
+ * Loss 0.101 | Train Acc 96.875
+LR: 0.011274125244300335
+Epoch:17/25
+ * Loss 0.123 | Train Acc 95.508
+LR: 0.010180828315007424
+Epoch:18/25
+ * Loss 0.108 | Train Acc 97.266
+LR: 0.009044802770135373
+Epoch:19/25
+ * Loss 0.134 | Train Acc 96.289
+LR: 0.007870816473093028
+Epoch:20/25
+ * Loss 0.144 | Train Acc 95.508
+LR: 0.00666379660736973
+Epoch:21/25
+ * Loss 0.122 | Train Acc 96.484
+LR: 0.005428808997301486
+Epoch:22/25
+ * Loss 0.096 | Train Acc 97.070
+LR: 0.004171036846965889
+Epoch:23/25
+ * Loss 0.086 | Train Acc 97.852
+LR: 0.0028957589864379565
+Epoch:24/25
+ * Loss 0.085 | Train Acc 97.852
+LR: 0.0016083277167066668
+Epoch:25/25
+ * Loss 0.119 | Train Acc 96.289
+Merging prompt ... 
+=> Saving class model to: ./checkpoints/CUB200-pa-apt/seed2/models/repeat-1/task-10/
+=> Save Done
+validation split name: 1 local = False
+ * Val Acc 80.382, Total time 2.35
+validation split name: 2 local = False
+ * Val Acc 86.719, Total time 2.21
+validation split name: 3 local = False
+ * Val Acc 78.125, Total time 2.22
+validation split name: 4 local = False
+ * Val Acc 83.398, Total time 2.18
+validation split name: 5 local = False
+ * Val Acc 72.852, Total time 2.05
+validation split name: 6 local = False
+ * Val Acc 75.694, Total time 2.25
+validation split name: 7 local = False
+ * Val Acc 73.958, Total time 2.33
+validation split name: 8 local = False
+ * Val Acc 78.819, Total time 2.35
+validation split name: 9 local = False
+ * Val Acc 69.531, Total time 2.08
+validation split name: 10 local = False
+ * Val Acc 81.076, Total time 2.28
+*****************************************
+Incremental class: Old valid output dimension: 0
+Incremental class: New Valid output dimension: 20
+=> Load Done
+===global validation====
+test task 1, using model 1
+validation split name: 1 local = False
+ * Val Acc 98.611, Total time 2.42
+Incremental class: Old valid output dimension: 20
+Incremental class: New Valid output dimension: 40
+=> Load Done
+===global validation====
+test task 1, using model 2
+validation split name: 1 local = False
+ * Val Acc 91.667, Total time 2.36
+test task 2, using model 2
+validation split name: 2 local = False
+ * Val Acc 97.656, Total time 2.13
+Incremental class: Old valid output dimension: 40
+Incremental class: New Valid output dimension: 60
+=> Load Done
+===global validation====
+test task 1, using model 3
+validation split name: 1 local = False
+ * Val Acc 90.278, Total time 2.37
+test task 2, using model 3
+validation split name: 2 local = False
+ * Val Acc 94.336, Total time 2.15
+test task 3, using model 3
+validation split name: 3 local = False
+ * Val Acc 89.258, Total time 2.32
+Incremental class: Old valid output dimension: 60
+Incremental class: New Valid output dimension: 80
+=> Load Done
+===global validation====
+test task 1, using model 4
+validation split name: 1 local = False
+ * Val Acc 89.931, Total time 2.37
+test task 2, using model 4
+validation split name: 2 local = False
+ * Val Acc 92.969, Total time 2.24
+test task 3, using model 4
+validation split name: 3 local = False
+ * Val Acc 88.477, Total time 2.19
+test task 4, using model 4
+validation split name: 4 local = False
+ * Val Acc 90.039, Total time 2.21
+Incremental class: Old valid output dimension: 80
+Incremental class: New Valid output dimension: 100
+=> Load Done
+===global validation====
+test task 1, using model 5
+validation split name: 1 local = False
+ * Val Acc 85.590, Total time 2.49
+test task 2, using model 5
+validation split name: 2 local = False
+ * Val Acc 91.602, Total time 2.19
+test task 3, using model 5
+validation split name: 3 local = False
+ * Val Acc 86.328, Total time 2.31
+test task 4, using model 5
+validation split name: 4 local = False
+ * Val Acc 87.305, Total time 2.21
+test task 5, using model 5
+validation split name: 5 local = False
+ * Val Acc 80.078, Total time 2.24
+Incremental class: Old valid output dimension: 100
+Incremental class: New Valid output dimension: 120
+=> Load Done
+===global validation====
+test task 1, using model 6
+validation split name: 1 local = False
+ * Val Acc 85.243, Total time 2.44
+test task 2, using model 6
+validation split name: 2 local = False
+ * Val Acc 90.234, Total time 2.22
+test task 3, using model 6
+validation split name: 3 local = False
+ * Val Acc 86.133, Total time 2.34
+test task 4, using model 6
+validation split name: 4 local = False
+ * Val Acc 86.133, Total time 2.21
+test task 5, using model 6
+validation split name: 5 local = False
+ * Val Acc 75.391, Total time 2.18
+test task 6, using model 6
+validation split name: 6 local = False
+ * Val Acc 78.472, Total time 2.40
+Incremental class: Old valid output dimension: 120
+Incremental class: New Valid output dimension: 140
+=> Load Done
+===global validation====
+test task 1, using model 7
+validation split name: 1 local = False
+ * Val Acc 83.681, Total time 2.41
+test task 2, using model 7
+validation split name: 2 local = False
+ * Val Acc 88.281, Total time 2.26
+test task 3, using model 7
+validation split name: 3 local = False
+ * Val Acc 84.570, Total time 2.27
+test task 4, using model 7
+validation split name: 4 local = False
+ * Val Acc 85.742, Total time 2.22
+test task 5, using model 7
+validation split name: 5 local = False
+ * Val Acc 75.977, Total time 2.27
+test task 6, using model 7
+validation split name: 6 local = False
+ * Val Acc 77.604, Total time 2.44
+test task 7, using model 7
+validation split name: 7 local = False
+ * Val Acc 75.868, Total time 2.48
+Incremental class: Old valid output dimension: 140
+Incremental class: New Valid output dimension: 160
+=> Load Done
+===global validation====
+test task 1, using model 8
+validation split name: 1 local = False
+ * Val Acc 83.160, Total time 2.49
+test task 2, using model 8
+validation split name: 2 local = False
+ * Val Acc 87.891, Total time 2.26
+test task 3, using model 8
+validation split name: 3 local = False
+ * Val Acc 84.180, Total time 2.27
+test task 4, using model 8
+validation split name: 4 local = False
+ * Val Acc 85.547, Total time 2.26
+test task 5, using model 8
+validation split name: 5 local = False
+ * Val Acc 75.977, Total time 2.19
+test task 6, using model 8
+validation split name: 6 local = False
+ * Val Acc 77.778, Total time 2.34
+test task 7, using model 8
+validation split name: 7 local = False
+ * Val Acc 76.215, Total time 2.42
+test task 8, using model 8
+validation split name: 8 local = False
+ * Val Acc 81.771, Total time 2.40
+Incremental class: Old valid output dimension: 160
+Incremental class: New Valid output dimension: 180
+=> Load Done
+===global validation====
+test task 1, using model 9
+validation split name: 1 local = False
+ * Val Acc 82.465, Total time 2.45
+test task 2, using model 9
+validation split name: 2 local = False
+ * Val Acc 85.352, Total time 2.16
+test task 3, using model 9
+validation split name: 3 local = False
+ * Val Acc 79.492, Total time 2.25
+test task 4, using model 9
+validation split name: 4 local = False
+ * Val Acc 83.594, Total time 2.30
+test task 5, using model 9
+validation split name: 5 local = False
+ * Val Acc 74.609, Total time 2.19
+test task 6, using model 9
+validation split name: 6 local = False
+ * Val Acc 76.042, Total time 2.42
+test task 7, using model 9
+validation split name: 7 local = False
+ * Val Acc 75.694, Total time 2.44
+test task 8, using model 9
+validation split name: 8 local = False
+ * Val Acc 80.382, Total time 2.45
+test task 9, using model 9
+validation split name: 9 local = False
+ * Val Acc 74.805, Total time 2.21
+Incremental class: Old valid output dimension: 180
+Incremental class: New Valid output dimension: 200
+=> Load Done
+===global validation====
+test task 1, using model 10
+validation split name: 1 local = False
+ * Val Acc 80.382, Total time 2.44
+test task 2, using model 10
+validation split name: 2 local = False
+ * Val Acc 86.719, Total time 2.20
+test task 3, using model 10
+validation split name: 3 local = False
+ * Val Acc 78.125, Total time 2.24
+test task 4, using model 10
+validation split name: 4 local = False
+ * Val Acc 83.398, Total time 2.15
+test task 5, using model 10
+validation split name: 5 local = False
+ * Val Acc 72.852, Total time 2.16
+test task 6, using model 10
+validation split name: 6 local = False
+ * Val Acc 75.694, Total time 2.34
+test task 7, using model 10
+validation split name: 7 local = False
+ * Val Acc 73.958, Total time 2.44
+test task 8, using model 10
+validation split name: 8 local = False
+ * Val Acc 78.819, Total time 2.38
+test task 9, using model 10
+validation split name: 9 local = False
+ * Val Acc 69.531, Total time 2.29
+test task 10, using model 10
+validation split name: 10 local = False
+ * Val Acc 81.076, Total time 2.47
+coda_forgetting= (np.float64(2.081191899985303), np.float64(0.0))
+general_forgetting= (np.float64(7.453221450617286), np.float64(0.0))
+acctable, {'1': OrderedDict([('1', 98.61111111111111), ('2', 91.66666666666667), ('3', 90.27777777777777), ('4', 89.93055555555556), ('5', 85.59027777777777), ('6', 85.24305555555556), ('7', 83.68055555555556), ('8', 83.15972222222223), ('9', 82.46527777777777), ('10', 80.38194444444444)]), '2': OrderedDict([('2', 97.65625), ('3', 94.3359375), ('4', 92.96875), ('5', 91.6015625), ('6', 90.234375), ('7', 88.28125), ('8', 87.890625), ('9', 85.3515625), ('10', 86.71875)]), '3': OrderedDict([('3', 89.2578125), ('4', 88.4765625), ('5', 86.328125), ('6', 86.1328125), ('7', 84.5703125), ('8', 84.1796875), ('9', 79.4921875), ('10', 78.125)]), '4': OrderedDict([('4', 90.0390625), ('5', 87.3046875), ('6', 86.1328125), ('7', 85.7421875), ('8', 85.546875), ('9', 83.59375), ('10', 83.3984375)]), '5': OrderedDict([('5', 80.078125), ('6', 75.390625), ('7', 75.9765625), ('8', 75.9765625), ('9', 74.609375), ('10', 72.8515625)]), '6': OrderedDict([('6', 78.47222222222223), ('7', 77.60416666666667), ('8', 77.77777777777777), ('9', 76.04166666666667), ('10', 75.69444444444444)]), '7': OrderedDict([('7', 75.86805555555556), ('8', 76.21527777777777), ('9', 75.69444444444444), ('10', 73.95833333333333)]), '8': OrderedDict([('8', 81.77083333333333), ('9', 80.38194444444444), ('10', 78.81944444444444)]), '9': OrderedDict([('9', 74.8046875), ('10', 69.53125)]), '10': OrderedDict([('10', 81.07638888888889)])}
+dropmatrix: [[98.61111111111111, 91.66666666666667, 90.27777777777777, 89.93055555555556, 85.59027777777777, 85.24305555555556, 83.68055555555556, 83.15972222222223, 82.46527777777777, 80.38194444444444], [97.65625, 94.3359375, 92.96875, 91.6015625, 90.234375, 88.28125, 87.890625, 85.3515625, 86.71875], [89.2578125, 88.4765625, 86.328125, 86.1328125, 84.5703125, 84.1796875, 79.4921875, 78.125], [90.0390625, 87.3046875, 86.1328125, 85.7421875, 85.546875, 83.59375, 83.3984375], [80.078125, 75.390625, 75.9765625, 75.9765625, 74.609375, 72.8515625], [78.47222222222223, 77.60416666666667, 77.77777777777777, 76.04166666666667, 75.69444444444444], [75.86805555555556, 76.21527777777777, 75.69444444444444, 73.95833333333333], [81.77083333333333, 80.38194444444444, 78.81944444444444], [74.8046875, 69.53125], [81.07638888888889]]
+global acc [[98.61111111]
+ [94.66145833]
+ [91.29050926]
+ [90.35373264]
+ [86.18055556]
+ [83.6009838 ]
+ [81.67472718]
+ [81.56467014]
+ [79.15943287]
+ [78.05555556]]
+pt acc [[[98.61111111]
+  [91.66666667]
+  [90.27777778]
+  [89.93055556]
+  [85.59027778]
+  [85.24305556]
+  [83.68055556]
+  [83.15972222]
+  [82.46527778]
+  [80.38194444]]
+
+ [[ 0.        ]
+  [97.65625   ]
+  [94.3359375 ]
+  [92.96875   ]
+  [91.6015625 ]
+  [90.234375  ]
+  [88.28125   ]
+  [87.890625  ]
+  [85.3515625 ]
+  [86.71875   ]]
+
+ [[ 0.        ]
+  [ 0.        ]
+  [89.2578125 ]
+  [88.4765625 ]
+  [86.328125  ]
+  [86.1328125 ]
+  [84.5703125 ]
+  [84.1796875 ]
+  [79.4921875 ]
+  [78.125     ]]
+
+ [[ 0.        ]
+  [ 0.        ]
+  [ 0.        ]
+  [90.0390625 ]
+  [87.3046875 ]
+  [86.1328125 ]
+  [85.7421875 ]
+  [85.546875  ]
+  [83.59375   ]
+  [83.3984375 ]]
+
+ [[ 0.        ]
+  [ 0.        ]
+  [ 0.        ]
+  [ 0.        ]
+  [80.078125  ]
+  [75.390625  ]
+  [75.9765625 ]
+  [75.9765625 ]
+  [74.609375  ]
+  [72.8515625 ]]
+
+ [[ 0.        ]
+  [ 0.        ]
+  [ 0.        ]
+  [ 0.        ]
+  [ 0.        ]
+  [78.47222222]
+  [77.60416667]
+  [77.77777778]
+  [76.04166667]
+  [75.69444444]]
+
+ [[ 0.        ]
+  [ 0.        ]
+  [ 0.        ]
+  [ 0.        ]
+  [ 0.        ]
+  [ 0.        ]
+  [75.86805556]
+  [76.21527778]
+  [75.69444444]
+  [73.95833333]]
+
+ [[ 0.        ]
+  [ 0.        ]
+  [ 0.        ]
+  [ 0.        ]
+  [ 0.        ]
+  [ 0.        ]
+  [ 0.        ]
+  [81.77083333]
+  [80.38194444]
+  [78.81944444]]
+
+ [[ 0.        ]
+  [ 0.        ]
+  [ 0.        ]
+  [ 0.        ]
+  [ 0.        ]
+  [ 0.        ]
+  [ 0.        ]
+  [ 0.        ]
+  [74.8046875 ]
+  [69.53125   ]]
+
+ [[ 0.        ]
+  [ 0.        ]
+  [ 0.        ]
+  [ 0.        ]
+  [ 0.        ]
+  [ 0.        ]
+  [ 0.        ]
+  [ 0.        ]
+  [ 0.        ]
+  [81.07638889]]]
+===Summary of experiment repeats: 1 / 1 ===
+acc  | mean: 78.05555555555557 std: 0.0
+78.06 \pm 0.0
+time  | mean: 0.21300256252288818 std: 0.0
+0.21 \pm 0.0
+[]
+/root/miniconda3/envs/apt/lib/python3.10/site-packages/numpy/_core/fromnumeric.py:3860: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/envs/apt/lib/python3.10/site-packages/numpy/_core/_methods.py:145: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/root/miniconda3/envs/apt/lib/python3.10/site-packages/numpy/_core/_methods.py:223: RuntimeWarning: Degrees of freedom <= 0 for slice
+  ret = _var(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+/root/miniconda3/envs/apt/lib/python3.10/site-packages/numpy/_core/_methods.py:181: RuntimeWarning: invalid value encountered in divide
+  arrmean = um.true_divide(arrmean, div, out=arrmean,
+/root/miniconda3/envs/apt/lib/python3.10/site-packages/numpy/_core/_methods.py:215: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+forgetting , nan \pm nan
