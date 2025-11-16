@@ -1,18 +1,18 @@
 #!/bin/bash
 
 # experiment settings
-DATASET=cifar-100
-N_CLASS=100
+DATASET=CUB200
+N_CLASS=200
 
 # hard coded inputs
 GPUID='0'
-CONFIG=configs/cifar-100_prompt.yaml
+CONFIG=configs/cub200_imp.yaml
 REPEAT=1
 OVERWRITE=0
 
 # hyperparameter arrays
-LR=0.004
-SCHEDULE=30
+LR=0.02
+SCHEDULE=25
 EMA_COEFF=0.7
 SEED_LIST=(1 2 3)
 
@@ -26,21 +26,21 @@ mkdir -p $LOG_DIR
 for seed in "${SEED_LIST[@]}"
     do
         # save directory
-        OUTDIR="./checkpoints/${DATASET}/seed${seed}"
+        OUTDIR="./checkpoints/${DATASET}-imp/seed${seed}"
         mkdir -p $OUTDIR
 
         # Create unique log file name
-        LOG_FILE="${LOG_DIR}/${DATASET}/seed${seed}.log"
+        LOG_FILE="${LOG_DIR}/${DATASET}-imp/seed${seed}.log"
 
         echo "Starting experiment with seed=$seed"
-        
-        nohup python -u run.py \
+
+        nohup python -u run_imp.py \
             --config $CONFIG \
             --gpuid $GPUID \
             --repeat $REPEAT \
             --overwrite $OVERWRITE \
-            --learner_type prompt \
-            --learner_name APT_Learner \
+            --learner_type apt_imp \
+            --learner_name APT_IMP_Learner \
             --prompt_param 0.01 \
             --lr $LR \
             --seed $seed \
@@ -50,10 +50,10 @@ for seed in "${SEED_LIST[@]}"
 
         # Store the PID of the background process
         PID=$!
-        
+
         # Wait for process to complete
         wait $PID
-        
+
         # Check if process completed successfully
         if [ $? -eq 0 ]; then
             echo "Experiment completed successfully"
@@ -61,10 +61,10 @@ for seed in "${SEED_LIST[@]}"
             echo "Experiment failed"
         fi
 
-        rm -rf ${OUTDIR}/models
-        
+        rm -rf ${OUTDIR}/models # Re-enable model deletion
+
         echo "----------------------------------------"
-        
+
         # Add delay before next experiment
         if [ $current -lt $total_experiments ]; then
             echo "Waiting for $DELAY_BETWEEN_EXPERIMENTS seconds before next experiment..."

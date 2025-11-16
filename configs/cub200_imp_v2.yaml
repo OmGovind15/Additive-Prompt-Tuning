@@ -1,0 +1,36 @@
+# configs/cub200_imp_v2.yaml
+learner:
+  type: apt_imp_v2
+  name: APT_IMP_V2_Learner
+  
+  # Improved importance fusion parameters
+  base_alpha: 0.7
+  importance_temperature: 2.0 
+  adjust_range: 0.15          
+  min_alpha: 0.55             
+  max_alpha: 0.85             
+
+  prompt_param: [0.01]
+  ema_coeff: 0.7 
+
+# --- Standard settings below ---
+training:
+  lr: 0.02
+  batch_size: 64
+  schedule: 25
+  schedule_type: cosine
+  optimizer: Adam
+
+dataset:
+  name: CUB200
+  first_split_size: 20
+  other_split_size: 20
+  dataroot: data
+  workers: 4
+  validation: False
+  train_aug: True
+  rand_split: True
+
+model:
+  type: zoo
+  name: vit_pt_imnet

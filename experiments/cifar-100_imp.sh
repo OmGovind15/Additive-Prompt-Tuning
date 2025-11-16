@@ -6,7 +6,7 @@ N_CLASS=100
 
 # hard coded inputs
 GPUID='0'
-CONFIG=configs/cifar-100_prompt.yaml
+CONFIG=configs/cifar-100_imp.yaml
 REPEAT=1
 OVERWRITE=0
 
@@ -26,21 +26,21 @@ mkdir -p $LOG_DIR
 for seed in "${SEED_LIST[@]}"
     do
         # save directory
-        OUTDIR="./checkpoints/${DATASET}/seed${seed}"
+        OUTDIR="./checkpoints/${DATASET}-imp/seed${seed}"
         mkdir -p $OUTDIR
 
         # Create unique log file name
-        LOG_FILE="${LOG_DIR}/${DATASET}/seed${seed}.log"
+        LOG_FILE="${LOG_DIR}/${DATASET}-imp/seed${seed}.log"
 
         echo "Starting experiment with seed=$seed"
         
-        nohup python -u run.py \
+        nohup python -u run_imp.py \
             --config $CONFIG \
             --gpuid $GPUID \
             --repeat $REPEAT \
             --overwrite $OVERWRITE \
-            --learner_type prompt \
-            --learner_name APT_Learner \
+            --learner_type apt_imp \
+            --learner_name APT_IMP_Learner \
             --prompt_param 0.01 \
             --lr $LR \
             --seed $seed \
@@ -61,7 +61,7 @@ for seed in "${SEED_LIST[@]}"
             echo "Experiment failed"
         fi
 
-        rm -rf ${OUTDIR}/models
+        # rm -rf ${OUTDIR}/models
         
         echo "----------------------------------------"
         

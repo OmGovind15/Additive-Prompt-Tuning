@@ -1,18 +1,18 @@
 #!/bin/bash
 
 # experiment settings
-DATASET=cifar-100
-N_CLASS=100
+DATASET=CUB200
+N_CLASS=200
 
 # hard coded inputs
 GPUID='0'
-CONFIG=configs/cifar-100_prompt.yaml
+CONFIG=configs/cub200_imp_v2.yaml
 REPEAT=1
 OVERWRITE=0
 
 # hyperparameter arrays
-LR=0.004
-SCHEDULE=30
+LR=0.02
+SCHEDULE=25
 EMA_COEFF=0.7
 SEED_LIST=(1 2 3)
 
@@ -26,22 +26,19 @@ mkdir -p $LOG_DIR
 for seed in "${SEED_LIST[@]}"
     do
         # save directory
-        OUTDIR="./checkpoints/${DATASET}/seed${seed}"
+        OUTDIR="./checkpoints/${DATASET}-imp-v2/seed${seed}"
         mkdir -p $OUTDIR
 
         # Create unique log file name
-        LOG_FILE="${LOG_DIR}/${DATASET}/seed${seed}.log"
+        LOG_FILE="${LOG_DIR}/${DATASET}-imp-v2/seed${seed}.log"
 
         echo "Starting experiment with seed=$seed"
         
-        nohup python -u run.py \
+        nohup python -u run_imp_v2.py \
             --config $CONFIG \
             --gpuid $GPUID \
             --repeat $REPEAT \
             --overwrite $OVERWRITE \
-            --learner_type prompt \
-            --learner_name APT_Learner \
-            --prompt_param 0.01 \
             --lr $LR \
             --seed $seed \
             --ema_coeff $EMA_COEFF \
@@ -61,7 +58,7 @@ for seed in "${SEED_LIST[@]}"
             echo "Experiment failed"
         fi
 
-        rm -rf ${OUTDIR}/models
+        # rm -rf ${OUTDIR}/models # Commented out to save models
         
         echo "----------------------------------------"
         

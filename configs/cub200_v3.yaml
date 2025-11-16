@@ -1,0 +1,44 @@
+# configs/cub200_v3.yaml
+learner:
+  type: pa_apt_v3
+  name: PA_APT_V3_Learner
+
+  # PA-APT settings
+  k_patches: 3
+  use_layer_wise: true
+
+  # Selective PPF settings
+  alpha_cls: 0.7
+  alpha_patch: 0.45
+
+  # Importance fusion (for CLS only)
+  use_importance_for_cls: true
+  importance_temperature: 2.5
+  adjust_range: 0.12
+  min_alpha: 0.55
+  max_alpha: 0.85
+
+  prompt_param: [0.01]
+  ema_coeff: 0.7 # Original ema_coeff
+
+# --- Standard settings below ---
+training:
+  lr: 0.02
+  batch_size: 64
+  schedule: 25
+  schedule_type: cosine
+  optimizer: Adam
+
+dataset:
+  name: CUB200
+  first_split_size: 20
+  other_split_size: 20
+  dataroot: data
+  workers: 4
+  validation: False
+  train_aug: True
+  rand_split: True
+
+model:
+  type: zoo
+  name: vit_pt_imnet

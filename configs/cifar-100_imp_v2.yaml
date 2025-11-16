@@ -1,0 +1,36 @@
+# configs/cifar-100_imp_v2.yaml
+learner:
+  type: apt_imp_v2
+  name: APT_IMP_V2_Learner
+
+  # Improved importance fusion parameters
+  base_alpha: 0.7             # Base PPF weight (from paper)
+  importance_temperature: 2.0 # Smoothing factor (higher = more uniform)
+  adjust_range: 0.15          # Max adjustment +/- 0.15
+  min_alpha: 0.55             # Lower bound (not too plastic)
+  max_alpha: 0.85             # Upper bound (not too rigid)
+
+  prompt_param: [0.01]
+  ema_coeff: 0.7 # This is the original ema_coeff, kept for compatibility
+
+# --- Standard settings below ---
+training:
+  lr: 0.004
+  batch_size: 64
+  schedule: 30
+  schedule_type: cosine
+  optimizer: Adam
+
+dataset:
+  name: CIFAR100
+  first_split_size: 10
+  other_split_size: 10
+  dataroot: data
+  workers: 4
+  validation: False
+  train_aug: True
+  rand_split: True
+
+model:
+  type: zoo
+  name: vit_pt_imnet

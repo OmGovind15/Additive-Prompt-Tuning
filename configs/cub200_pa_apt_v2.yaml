@@ -1,0 +1,23 @@
+dataset: CUB200
+first_split_size: 20
+other_split_size: 20
+schedule:
+- 18
+schedule_type: cosine
+batch_size: 64
+optimizer: Adam
+momentum: 0.90
+weight_decay: 0
+model_type: zoo
+model_name: vit_pt_imnet
+max_task: -1
+dataroot: data
+workers: 4
+validation: False
+train_aug: True
+rand_split: True
+# --- PA-APT V2 Settings ---
+k_patches: 3          # Slightly more patches than CIFAR100 (still less than 5)
+alpha_cls: 0.7
+alpha_patch: 0.45     # Lower alpha for more adaptation (CUB-200 needs high plasticity)
+use_layer_wise: True

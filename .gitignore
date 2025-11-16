@@ -1,0 +1,14 @@
+# Exclude all data directories and their contents
+data/
+
+# Exclude all tarball archives
+*.tar
+*.tar.gz
+
+# Exclude checkpoints, logs, and other build artifacts
+logs/
+__pycache__/
+checkpoints/
+
+# Exclude environment or installation scripts if they aren't essential
+install-requirements.sh
